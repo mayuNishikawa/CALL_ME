@@ -36,9 +36,9 @@ https://user-images.githubusercontent.com/103108809/183001310-69753a0d-a7f9-49ea
 
 
 ## 画面遷移図
-https://user-images.githubusercontent.com/103108809/183001328-968bb04d-239c-43cd-a0c7-9e9d92a6c5ef.png
+![CALL ME画面遷移図](https://user-images.githubusercontent.com/103108809/183070014-80d0acf7-7331-46ba-b0c6-1b2db3e06e01.png)
 
 
 ## ER図　
-https://user-images.githubusercontent.com/103108809/183001320-994c6d61-d6ff-4c95-8147-80161f724056.png
+![CALL ME ER図](https://user-images.githubusercontent.com/103108809/183070006-cefea270-577f-49d4-bde1-cb98ab3b6d7c.png)
 
