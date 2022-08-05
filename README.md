@@ -32,7 +32,7 @@ https://docs.google.com/spreadsheets/d/1-zMcNmPU1Q9A7_kPtnfObJQAuauv85yxryIuGpWc
 
 ## ワイヤーフレーム
 https://cacoo.com/diagrams/vKCzX7Jafv5J6Kk8/ED6A3
-https://user-images.githubusercontent.com/103108809/183001310-69753a0d-a7f9-49ea-83ca-e4916710dfe3.png
+![CALL ME ワイヤーフレーム](https://user-images.githubusercontent.com/103108809/183070613-c0507db7-05e8-4fad-bbec-e297691f916d.png)
 
 
 ## 画面遷移図
@@ -41,4 +41,3 @@ https://user-images.githubusercontent.com/103108809/183001310-69753a0d-a7f9-49ea
 
 ## ER図　
 ![CALL ME ER図](https://user-images.githubusercontent.com/103108809/183070006-cefea270-577f-49d4-bde1-cb98ab3b6d7c.png)
-
