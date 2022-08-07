@@ -32,13 +32,13 @@ https://docs.google.com/spreadsheets/d/1-zMcNmPU1Q9A7_kPtnfObJQAuauv85yxryIuGpWc
 
 ## ワイヤーフレーム
 https://cacoo.com/diagrams/vKCzX7Jafv5J6Kk8/ED6A3
-![CALL ME ワイヤーフレーム](https://user-images.githubusercontent.com/103108809/183070613-c0507db7-05e8-4fad-bbec-e297691f916d.png)
+![CALL MEワイヤーフレーム](https://user-images.githubusercontent.com/103108809/183274313-b2c85fe4-8450-467f-a895-4984820a58f2.png)
 
 
 ## 画面遷移図
-![CALL ME画面遷移図](https://user-images.githubusercontent.com/103108809/183070014-80d0acf7-7331-46ba-b0c6-1b2db3e06e01.png)
+![CALL ME画面遷移図 ](https://user-images.githubusercontent.com/103108809/183274316-6873a8f9-f6f5-4336-89c2-6d52014fef5c.png)
 
 
 ## ER図　
-![CALL ME ER図](https://user-images.githubusercontent.com/103108809/183230894-c79e5cd2-fb0d-4600-a8a8-ac09c38eb9a3.png)
+![CALL ME ER図](https://user-images.githubusercontent.com/103108809/183274312-53c54911-2c59-4432-ad9b-889b54c3a4cb.png)
 
