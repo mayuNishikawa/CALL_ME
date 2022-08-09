@@ -1,4 +1,4 @@
-class RoomsController < ApplicationController
+class HomesController < ApplicationController
   before_action :authenticate_user!
 
   def show

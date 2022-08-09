@@ -16,6 +16,8 @@ gem 'rexml'
 gem 'devise-i18n'
 # gem 'rails_admin'
 # gem 'cancancan'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
