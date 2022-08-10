@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        family_name: 氏
+        first_name: 名
+        nickname: ニックネーム
+        admin: 管理者
+        icon: アイコン
