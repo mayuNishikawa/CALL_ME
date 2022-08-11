@@ -40,5 +40,6 @@ https://cacoo.com/diagrams/vKCzX7Jafv5J6Kk8/ED6A3
 
 
 ## ER図　
-![CALL ME ER図](https://user-images.githubusercontent.com/103108809/183295149-7d815968-92db-433c-a365-39777640a022.png)
+![CALL ME ER図](https://user-images.githubusercontent.com/103108809/184061272-3fe682ab-45dc-4c49-aed9-8981767d1329.png)
+
 
