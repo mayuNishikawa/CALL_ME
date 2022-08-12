@@ -4,4 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :icon, UsersIconUploader
+
+  def make_nickname
+    self.nickname = choose_nickname_randomly
+  end
+
+  private
+
+  def choose_nickname_randomly
+    chosen = Nickname.offset(rand(Nickname.count)).first
+    if chosen.category == "prefix"
+      self.family_name + content
+    elsif chosen.category == "suffix"
+      self.first_name + content
+    else
+      content
+    end
+  end
 end

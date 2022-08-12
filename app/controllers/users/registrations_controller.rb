@@ -10,9 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    # super
+    @user = User.new(configure_permitted_parameters)
+    @user.make_nickname
+    if @user.save
+      redirect_to home_path
+    else
+      render :new
+    end
+  end
 
   # GET /resource/edit
   # def edit
