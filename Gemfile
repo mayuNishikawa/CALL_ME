@@ -15,7 +15,7 @@ gem 'devise'
 gem 'rexml'
 gem 'devise-i18n'
 gem 'rails_admin', '~> 3.0'
-# gem 'cancancan'
+gem 'cancancan'
 gem 'carrierwave'
 gem 'mini_magick'
 
