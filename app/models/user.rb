@@ -14,11 +14,11 @@ class User < ApplicationRecord
   def choose_nickname_randomly
     chosen = Nickname.offset(rand(Nickname.count)).first
     if chosen.category == "prefix"
-      self.family_name + content
+      self.family_name + chosen.content
     elsif chosen.category == "suffix"
-      self.first_name + content
+      self.first_name + chosen.content
     else
-      content
+      chosen.content
     end
   end
 end
