@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: %i[ show edit ]
+  before_action :set_team, only: %i[ show edit update destroy ]
   
   def new
     @team = Team.new
@@ -22,6 +22,20 @@ class TeamsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @team.update(team_params)
+      redirect_to @team, notice: "チームを編集しました"
+    else
+      flash.now[:error] = "チームの編集に失敗しました"
+      render :edit
+    end
+  end
+
+  def destroy
+    @team.destroy
+    redirect_to "/", notice: "チームを削除しました"
   end
 
   private

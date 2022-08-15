@@ -14,3 +14,4 @@
 <% end %>
 
 <%= link_to "編集", edit_team_path(@team) %>
+<%= link_to "チームを削除", @team, method: :delete, data:{ confirm: "削除しますか？"} %>
