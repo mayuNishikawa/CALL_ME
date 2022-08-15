@@ -13,5 +13,8 @@
   <button type="submit">送信</button>
 <% end %>
 
-<%= link_to "編集", edit_team_path(@team) %>
+<%= link_to "チームを編集", edit_team_path(@team) %>
 <%= link_to "チームを削除", @team, method: :delete, data:{ confirm: "削除しますか？"} %>
+<% if @team.members.ids.include?(current_user.id) %>
+  <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"} %>
+<% end %>

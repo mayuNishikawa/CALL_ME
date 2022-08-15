@@ -13,7 +13,9 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-
+    assign = Assign.find(params[:id])
+    assign.destroy
+    redirect_to "/", notice: "チームから退出しました"
   end
 
   private
