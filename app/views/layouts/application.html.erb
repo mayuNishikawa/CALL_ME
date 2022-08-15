@@ -13,7 +13,12 @@
     <header>
       <% if user_signed_in? %>
         <%= link_to "Home", "/" %>
-        <%= link_to "マイページ", user_show_path(current_user.id) %>
+        <% teams = Team.all %>
+        <% teams.each do |team| %>
+          <%= link_to team.name, team_path(team) %>
+        <% end %>
+        <%= link_to "チーム作成", new_team_path %>
+        <%= link_to "マイページ", user_path(current_user.id) %>
         <% if current_user.try(:admin?) %>
           <%= link_to "管理画面", rails_admin_path %>
         <% end %>
