@@ -1,0 +1,7 @@
+<h1>チーム詳細</h1>
+
+<%= @team.name %>
+<% @team.members.each do |member| %>
+  <p><%= member.nickname %></p>
+<% end %>
+
