@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: %i[show]
+  before_action :set_team, only: %i[ show edit ]
   
   def new
     @team = Team.new
@@ -19,6 +19,9 @@ class TeamsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
   end
 
   private

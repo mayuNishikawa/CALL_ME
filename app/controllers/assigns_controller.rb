@@ -3,7 +3,7 @@ class AssignsController < ApplicationController
 
   def create
     team = find_team(params[:team_id])
-    user = email_reliable?(assign_params)
+    user = email_reliable?(assign_params)? User.find_by(email: assign_params) : nil
     if user
       team.invite_member(user)
       redirect_to team_url(team), notice: 'アサインに成功しました'
@@ -12,14 +12,18 @@ class AssignsController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
   private
 
   def assign_params
-    params[:email]
+    params[:post][:email]
   end
 
-  def email_reliable?(address)
-    address.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
+  def email_reliable?(email)
+    email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
   end
 
   def find_team(*)
