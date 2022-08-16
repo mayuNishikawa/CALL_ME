@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :assigns, only: %i[ create destroy ]
   end
   resources :users, only: :show
+  resources :chatrooms, only: :show
+  resources :chats, only: :create
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {registrations: 'users/registrations'}, path: 'user'

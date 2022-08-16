@@ -1,0 +1,4 @@
+<div class="chat" id="chat-<%= chat.id %>">
+  <p><%= image_tag(chat.user.icon.url) %><%= chat.user.nickname %></p>
+  <p><%= simple_format(h chat.content) %></p>
+</div>
