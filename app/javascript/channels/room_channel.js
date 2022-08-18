@@ -2,15 +2,15 @@ import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
 
-    window.chatContainer = document.getElementById('chat-container')
+    window.chatContainer = document.getElementById('chat-container');
 
     if (chatContainer === null) {
-        return
-    }
+        return;
+    };
 
     consumer.subscriptions.create("RoomChannel", {
         connected() {
-            console.log("connected to room channel...")
+            console.log("connected to room channel...");
         },
 
         disconnected() {
@@ -18,7 +18,14 @@ document.addEventListener('turbolinks:load', () => {
 
         received(data) {
             chatContainer.insertAdjacentHTML('beforeend', data['chat']);
-            // console.log(data);
         }
-    })
-})
+    });
+
+    const documentElement = document.documentElement
+    window.messageContent = document.getElementById('chat_content')
+    window.scrollToBottom = function(){
+        window.scroll(0, documentElement.scrollHeight);
+    }
+
+    scrollToBottom();
+});
