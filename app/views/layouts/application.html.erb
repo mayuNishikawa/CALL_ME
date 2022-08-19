@@ -12,12 +12,7 @@
   <body>
     <header>
       <% if user_signed_in? %>
-        <%= link_to "Home", "/" %>
-        <% teams = Team.all %>
-        <% teams.each do |team| %>
-          <%= link_to team.name, team_path(team) %>
-        <% end %>
-        <%= link_to "チーム作成", new_team_path %>
+        <%= link_to "チャット", "/" %>
         <%= link_to "マイページ", user_path(current_user.id) %>
         <% if current_user.try(:admin?) %>
           <%= link_to "管理画面", rails_admin_path %>
@@ -35,6 +30,31 @@
         <p class="alert alert-error"><%= alert %></p>
       <% end %>
     </header>
-    <%= yield %>
+
+    <div id="room-id" data-room-id="<%= @team.try(:id) %>"></div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <%= render 'form', team: Team.new %>
+          <hr>
+          <% Team.all.each do |team| %>
+            <% if team.members.ids.include?(current_user.id) %>
+              <%= link_to team do %>
+                <div class="card noo-outline mb-2">
+                  <div class="card-body">
+                    <%= team.name %><br>
+                    <%= team.members.count %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-9">
+          <%= yield %>
+        </div>
+      </div> 
+    </div>
   </body>
 </html>
