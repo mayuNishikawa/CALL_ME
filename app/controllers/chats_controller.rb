@@ -1,7 +1,12 @@
 class ChatsController < ApplicationController
+  def new
+    @chat = Chat.new
+  end
+
   def create
+    # binding.pry
     @chat = current_user.chats.create!(chat_params)
-    ActionCable.server.broadcast('room_channel', {chat: @chat.template})
+    SendChatJob.perform_later(@chat)
   end
 
   def destroy
@@ -11,6 +16,6 @@ class ChatsController < ApplicationController
 
   private
   def chat_params
-    params.require(:chat).permit(:content)
+    params.require(:chat).permit(:content, :user_id, :team_id)
   end
 end

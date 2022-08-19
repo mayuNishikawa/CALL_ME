@@ -1,0 +1,39 @@
+<div id="room-id" data-room-id="<%= @team.try(:id) %>"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <%= render 'form', team: Team.new %>
+      <hr>
+      <% @teams.each do |team| %>
+        <%= link_to team do %>
+          <div class="card noo-outline mb-2">
+            <div class="card-body">
+              <%= team.name %><br>
+              <%= team.members.count %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <% if @team.present? %>
+        <div class="chat-room">
+          <span class="navbar navbar-light bg-light mb-4">
+            <div class="container-fluid">
+              <%= link_to @team.name, member_team_path(@team), class: "navbar-brand" %>
+            </div>
+          </span>
+          <div id="chats">
+            <% @team.chats.each do |chat| %>
+              <%= render'chats/chat', chat: chat %>
+            <% end %>
+          </div>
+          <div class="chat-box">
+            <%= render 'chats/form', chat: Chat.new, team: @team %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

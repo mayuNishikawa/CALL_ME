@@ -1,5 +1,9 @@
-<div class="chat" id="chat-<%= chat.id %>">
+<div class="chat mb-2 <% 'me' if chat.user == current_user %>">
+  <div class="author">
   <p><%= image_tag(chat.user.icon.url) %><%= chat.user.nickname %></p>
-  <%= simple_format(h chat.content) %>
-  <%= link_to "削除", chat, method: :delete %>
+  </div>
+  <div class="content">
+    <p><%= simple_format(h chat.content) %></p>
+    <p><%= link_to "削除", chat, method: :delete %></p>
+    </div>
 </div>

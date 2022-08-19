@@ -1,0 +1,22 @@
+<%= form_with(model: chat, local: false ) do |form| %>
+  <% if chat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :team_id, value: team.id %>
+
+  <div class="chat_content input-group">
+    <%= form.text_field :content, placeholder: "メッセージを入力", class: 'form-control mr-2' %>
+  </div>
+  <div class="input-group-append">
+    <%= form.submit "送信", class: "btn btn-primary" %> 
+  </div>
+<% end %>

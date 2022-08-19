@@ -1,8 +1,4 @@
 <h1>チーム作成</h1>
 
-<%= form_with(model: @team, local: true) do |f| %>
-  <p><%= f.label :name %></p>
-  <p><%= f.text_field :name %></p>
+<%= render 'form', chat: @chat %>
 
-  <p><%= f.submit %></p>
-<% end %>

@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
-  # root 'homes#show'
+  root 'teams#index'
+
   resources :teams do
+    member do
+      get :member
+    end
     resources :assigns, only: %i[ create destroy ]
   end
+
+  resources :chats, only: %i[ new create destroy ]
+
   resources :users, only: :show
-  root 'chatrooms#show'
-  resources :chats, only: %i[ create destroy ]
   
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {registrations: 'users/registrations'}, path: 'user'
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

@@ -1,7 +1,11 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: %i[ show edit update destroy ]
+  before_action :set_team, only: %i[ show edit update destroy member ]
   
+  def index
+    @teams = Team.all
+  end
+
   def new
     @team = Team.new
   end
@@ -19,6 +23,9 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @teams = Team.all
+    @room_id = params[:id]
+    render 'index'
   end
 
   def edit
@@ -26,7 +33,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to @team, notice: "チームを編集しました"
+      redirect_to team_url(@team), notice: "チームを編集しました"
     else
       flash.now[:error] = "チームの編集に失敗しました"
       render :edit
@@ -36,6 +43,10 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     redirect_to "/", notice: "チームを削除しました"
+  end
+    
+  def member
+    @members = @team.members
   end
 
   private

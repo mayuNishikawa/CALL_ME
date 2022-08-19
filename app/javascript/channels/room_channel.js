@@ -1,31 +1,29 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
+  const element = document.getElementById('room-id');
+  const room_id = element.getAttribute('data-room-id');
 
-    window.chatContainer = document.getElementById('chat-container');
+  consumer.subscriptions.create({ channel: "RoomChannel", room_id: room_id}, {
+    connected() {
+      console.log("connected to room channel" + room_id);
+    },
 
-    if (chatContainer === null) {
-        return;
-    };
+    disconnected() {
+    },
 
-    consumer.subscriptions.create("RoomChannel", {
-        connected() {
-            console.log("connected to room channel...");
-        },
-
-        disconnected() {
-        },
-
-        received(data) {
-            chatContainer.insertAdjacentHTML('beforeend', data['chat']);
-        }
-    });
-
-    const documentElement = document.documentElement
-    window.messageContent = document.getElementById('chat_content')
-    window.scrollToBottom = function(){
-        window.scroll(0, documentElement.scrollHeight);
+    received(data) {
+      const chatContainer = document.getElementById('chats')
+      chatContainer.innerHTML = chatContainer.innerHTML + 
+      data.html
     }
+  });
 
-    scrollToBottom();
+  const documentElement = document.documentElement
+  window.chatContent = document.getElementById('chat_content')
+  window.scrollToBottom = function(){
+    window.scroll(0, documentElement.scrollHeight);
+  }
+
+  scrollToBottom();
 });
