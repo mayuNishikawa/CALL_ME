@@ -1,21 +1,19 @@
 class AssignsController < ApplicationController
-  before_action :authenticate_user!
-
   def create
     team = find_team(params[:team_id])
     user = email_reliable?(assign_params)? User.find_by(email: assign_params) : nil
     if user
       team.invite_member(user)
-      redirect_to team_url(team), notice: 'アサインに成功しました'
+      redirect_to team_url(team)
     else
-      redirect_to team_url(team), notice: 'アサインに失敗しました'
+      redirect_to team_url(team)
     end
   end
 
   def destroy
     assign = Assign.find(params[:id])
     assign.destroy
-    redirect_to "/", notice: "チームから退出しました"
+    redirect_to "/"
   end
 
   private
