@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
       @team.invite_member(@team.owner)
       redirect_to team_url(@team)
     else
-      render :new
+      redirect_to "/"
     end
   end
 
