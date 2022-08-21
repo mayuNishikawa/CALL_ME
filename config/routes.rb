@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts
   root 'teams#index'
 
   resources :teams do
@@ -8,9 +7,8 @@ Rails.application.routes.draw do
     end
     resources :assigns, only: %i[ create destroy ]
   end
-
   resources :chats, only: %i[ new create destroy ]
-
+  resources :posts
   resources :users, only: :show
   
   devise_for :users, controllers: {registrations: 'users/registrations'}, path: 'user'
