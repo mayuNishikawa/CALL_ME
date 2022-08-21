@@ -6,8 +6,9 @@ class User < ApplicationRecord
   mount_uploader :icon, UsersIconUploader
 
   has_many :teams, foreign_key: :owner_id
-  has_many :assigns, dependent: :destroy
+  has_many :assigns
   has_many :teams, through: :assigns, source: :team
+  has_many :chats
 
   def make_nickname
     self.nickname = choose_nickname_randomly
@@ -18,7 +19,7 @@ class User < ApplicationRecord
   def choose_nickname_randomly
     chosen = Nickname.offset(rand(Nickname.count)).first
     if chosen.category == "prefix"
-      self.family_name + chosen.content
+      chosen.content + self.family_name
     elsif chosen.category == "suffix"
       self.first_name + chosen.content
     else

@@ -1,0 +1,95 @@
+@import "reset";
+@import '~bootstrap/scss/bootstrap';
+
+html, body, main {
+  height: 100vh;
+  font-family: 'Catamaran', 'Noto Sans Jp', sans-serif;
+  color: #252525;
+  font-size: 16px;
+  line-height: 1.5;
+}
+body {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  main {
+    display: block;
+  }
+}
+
+.side_bar {
+  border-right: 1px solid #f5f5f5;
+}
+.dropdowns {
+  transition: all 0.5s ease;
+  background-color: #252525c5;
+  padding: 0;
+  margin: 0;
+  .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+    padding: 30px 70px;
+    &:hover {
+      transition: background-color 0.3s ease;
+      background-color: #252525e5;
+      a {
+        color: #f5f5f5;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.no_outline {
+  border: none;
+}
+.room_link {
+  &:hover {
+    text-decoration: none;
+  }
+  .room_card {
+    transition: background-color 0.5s ease;
+    border-radius: 10px;
+    &:hover {
+      background-color: #f5f5f5;
+    }
+    .room_name {
+      color: #252525;
+    } 
+  } 
+}
+
+.chat-room {
+  height: 100vh;
+  padding-bottom: 150px;
+  .navbar {
+    border-bottom: 1px solid #eeeeee;
+  }
+  #chats{
+    height: 100%;
+    overflow-y: scroll;
+    margin-top: 20px;
+    margin-bottom: 80px;
+  }
+  .chat-box {
+    background-color: white;
+    border-top: 1px solid #eeeeee;
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    width: 100%;
+    margin-left: -15px;
+    input[type=text] {
+      height: 45px;
+      font-size: 18px;
+      padding: 8px 16px;
+    }
+    .btn {
+      height: 45px;
+    }
+  }
+}

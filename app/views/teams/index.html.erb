@@ -1,0 +1,22 @@
+<% if @team.present? %>
+  <div class="chat-room">
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <span><%= link_to @team.name, member_team_path(@team.id), class: "navbar-brand" %></span>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "設定", member_team_path(@team)%>
+          </>
+        </ul>
+      </div>
+    </nav>
+    <div id="chats">
+      <% @team.chats.order(:created_at).each do |chat| %>
+        <%= render'chats/chat', chat: chat %>
+      <% end %>
+    </div>
+    <div class="chat-box">
+      <%= render 'chats/form', chat: Chat.new, team: @team %>
+    </div>
+  </div>
+<% end %>

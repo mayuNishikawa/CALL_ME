@@ -1,9 +1,5 @@
 <h1>チーム編集</h1>
 
-<%= form_with(model: @team, local: true) do |f| %>
-  <p><%= f.label :name %></p>
-  <p><%= f.text_field :name %></p>
-  
-  <p><%= f.submit %></p>
-  
-<% end %>
+<%= render 'form', team: @team %>
+
+<%= link_to '戻る', team_path(@team) %>

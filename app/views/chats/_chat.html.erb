@@ -1,0 +1,13 @@
+<div class="chat mb-2">
+  <div class="info">
+    <p>
+      <%= image_tag(chat.user.icon.url) %>
+      <%= chat.user.nickname %>
+      <%= chat.created_at.strftime('%m/%d/%H:%M') %>
+    </p>
+  </div>
+  <div class="content">
+    <p><%= simple_format(h chat.content) %></p>
+    <p><%= link_to "削除", chat, method: :delete %></p>
+    </div>
+</div>
