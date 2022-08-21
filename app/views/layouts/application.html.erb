@@ -4,57 +4,66 @@
     <title>CallMe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header>
-      <% if user_signed_in? %>
-        <%= link_to "チャット", "/" %>
-        <%= link_to "マイページ", user_path(current_user.id) %>
-        <% if current_user.try(:admin?) %>
-          <%= link_to "管理画面", rails_admin_path %>
-        <% end %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
+    <% if user_signed_in? %>
+      <main>
+        <!-- action cable -->
+        <div id="room-id" data-room-id="<%= @team.try(:id) %>"></div>
+        <!-- section -->
+        <div class="container-fluid">
+          <div class="row">
+            <!-- nav -->
+            <div class="col-2 side_bar">
+              <div class=" dropdown menu_content">
+                <button class="btn dropdown-toggle" data-toggle="dropdown" ><%= image_tag(current_user.icon.url) %></button>
+                <div class="dropdown-menu dropdowns">
+                  <%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item dropdown" %>
+                  <% if current_user.try(:admin?) %>
+                    <%= link_to "管理画面", rails_admin_path, class: "dropdown-item dropdown" %>
+                  <% end %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown" %>
+                </div>
+              </div>
+              <hr>
+              <%= render 'teams/form', team: Team.new %>
+              <hr>
+              <% Team.all.each do |team| %>
+                <% if team.members.ids.include?(current_user.id) %>
+                  <%= link_to team, class: "room_link" do %>
+                    <div class="card no_outline room_card mb-2">
+                      <div class="card-body">
+                        <p class="room_name"><%= team.name %></p>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- section -->
+            <div class="col-10">
+              <%= yield %>
+            </div>
+          </div> 
+        </div>
+      </main>
+    <% else %>
+      <header>
         <%= link_to "新規登録", new_user_registration_path %>
         <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-
-      <% if notice %>
-        <p class="alert alert-notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-error"><%= alert %></p>
-      <% end %>
-    </header>
-
-    <div id="room-id" data-room-id="<%= @team.try(:id) %>"></div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-3">
-          <%= render 'form', team: Team.new %>
-          <hr>
-          <% Team.all.each do |team| %>
-            <% if team.members.ids.include?(current_user.id) %>
-              <%= link_to team do %>
-                <div class="card noo-outline mb-2">
-                  <div class="card-body">
-                    <%= team.name %><br>
-                    <%= team.members.count %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="col-9">
-          <%= yield %>
-        </div>
-      </div> 
-    </div>
+      </header>
+      <body>
+        <!-- alert -->
+        <% if notice %>
+          <p class="alert alert-notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-error"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+      </body>
+    <% end %>
   </body>
 </html>

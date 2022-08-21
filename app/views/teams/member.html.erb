@@ -1,17 +1,25 @@
-<h1>メンバー</h1>
-<h2>チーム名</h2>
-<p><%= @team.name %></p>
-<h2>メンバー</h2>
-<% @team.members.each do |member| %>
-  <p><%= member.nickname %></p>
+<h3><%= @team.name %></h3>
+
+<h3>メンバーを招待する</h3>
+<%= form_with(model: :assign, scope: :post, url: team_assigns_path(@team), local: true) do |f| %>
+  <div class="input-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control mr-2', placeholder: "emailアドレス" %>
+    <div class="input-group-append">
+      <%# <button type="submit">追加</button> %>
+      <%= f.submit "チーム作成", class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
 <% end %>
 
-<h2>招待</h2>
-<%= form_with(model: :assign, scope: :post, url: team_assigns_path(@team), local: true) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <button type="submit">送信</button>
+<h3>メンバー <small><%= @team.members.count %></small></h3>
+<% @team.members.each do |member| %>
+  <div class="member_container">
+    <%= link_to image_tag(member.icon.url), user_path(member.id) %>
+    <%= member.nickname %>
+  </div>
 <% end %>
+
 
 <%= link_to "チームを編集", edit_team_path(@team) %>
 <%= link_to "チームを削除", @team, method: :delete, data:{ confirm: "削除しますか？"} %>

@@ -1,4 +1,4 @@
-<%= form_with(model: team, local: true) do |form| %>
+<%= form_with(model: team, local: true) do |f| %>
   <% if team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
+  <div class="form-group mb-3">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "チーム名" %>
   </div>
 
   <div class="actions">
-    <%= form.submit "チーム作成", class: "btn btn-primary btn-block" %>
+    <%= f.submit "チーム作成", class: "btn btn-primary btn-block disabled" %>
   </div>
 <% end %>
