@@ -5,7 +5,7 @@
         user_path(comment.user.id) if comment.user.icon.present?%>
     <%= comment.user.nickname %>
     <%= comment.created_at.strftime('%m/%d %H:%M') %>
-    <%= comment.comment %>
+    <%= simple_format(h comment.comment) %>
     <% if comment.user == current_user %>
       <div class="comment_delete">
         <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "削除しますか？"}, class: "bootstrap_link" %>

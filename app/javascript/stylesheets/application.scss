@@ -46,26 +46,24 @@ body {
       }
     }
   }
-  
-}
-
-.no_outline {
-  border: none;
-}
-.room_link {
-  &:hover {
-    text-decoration: none;
+  .no_outline {
+    border: none;
   }
-  .room_card {
-    transition: background-color 0.5s ease;
-    border-radius: 10px;
+  .room_link {
     &:hover {
-      background-color: #f5f5f5;
+      text-decoration: none;
     }
-    .room_name {
-      color: #252525;
+    .room_card {
+      transition: background-color 0.5s ease;
+      border-radius: 10px;
+      &:hover {
+        background-color: #f5f5f5;
+      }
+      .room_name {
+        color: #252525;
+      } 
     } 
-  } 
+  }
 }
 
 .chat-room {
@@ -109,5 +107,36 @@ body {
     height: 100%;
     overflow-y: scroll;
     margin-top: 3px;
+  }
+}
+
+.post-show-room {
+  height: 100vh;
+  padding-bottom: 150px;
+  .navbar {
+    border-bottom: 1px solid #eeeeee;
+  }
+  #post_show{
+    height: 100%;
+    overflow-y: scroll;
+    margin-top: 3px;
+    margin-bottom: 80px;
+  }
+  .comment_form {
+    background-color: white;
+    border-top: 1px solid #eeeeee;
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    width: 100%;
+    margin-left: -15px;
+    input[type=text] {
+      height: 45px;
+      font-size: 18px;
+      padding: 8px 16px;
+    }
+    .btn {
+      height: 45px;
+    }
   }
 }

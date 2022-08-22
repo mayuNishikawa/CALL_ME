@@ -1,8 +1,9 @@
 <%= form_with(model:[post, comment], local: false) do |f| %>
   <div class="input-group">
-    <%= f.text_field :comment, rows:'5', placeholder: "話しかける", class: 'form-control mr-2 text_field' %>
+    <%= f.text_field :comment, rows:'5', placeholder: "話しかけてみましょう!", class: 'form-control mr-2 text_field' %>
     <div class="input-group-append">
-      <%= f.submit "送信する", class: "btn btn-primary btn-block" %>
+      <%= f.submit "ねぇ", class: "btn btn-primary btn-block" %>
     </div>
   </div>
 <% end %>
+
