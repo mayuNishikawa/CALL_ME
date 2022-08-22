@@ -10,9 +10,16 @@
 <p><%= @post.content %></p>
 
 <% if @post.user_id == current_user.id %>
-  <p><%= link_to 'edit', edit_post_path(@post), class: "bootstrap_link" %></p>
-  <p><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '削除しますか?' }, class: "bootstrap_link" %></p>
+  <p><%= link_to '編集', edit_post_path(@post), class: "bootstrap_link" %></p>
+  <p><%= link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }, class: "bootstrap_link" %></p>
 <% end %>
 
-<%= link_to '編集', edit_post_path(@post), class: "bootstrap_link" %> |
 <%= link_to '戻る', posts_path, class: "bootstrap_link" %>
+
+<div id="comments">
+  <%= render 'comments/post_comments', post: @post %>
+</div>
+
+<div class="comment_form">
+  <%= render 'comments/form', post: @post, comment: @comment %>
+</div>
