@@ -28,6 +28,8 @@
                 </div>
               </div>
               <hr>
+              <%= link_to "Lounge", posts_path, class: "bootstrap_link" %>
+              <hr>
               <%= render 'teams/form', team: Team.new %>
               <hr>
               <% Team.all.each do |team| %>
@@ -35,7 +37,7 @@
                   <%= link_to team, class: "room_link" do %>
                     <div class="card no_outline room_card mb-2">
                       <div class="card-body">
-                        <p class="room_name"><%= team.name %></p>
+                        <p class="bootstrap_link"><%= team.name %></p>
                       </div>
                     </div>
                   <% end %>

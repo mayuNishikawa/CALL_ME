@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     end
     resources :assigns, only: %i[ create destroy ]
   end
-
+  resources :posts do
+    resources :comments, only: %i[ create destroy ]
+  end
   resources :chats, only: %i[ new create destroy ]
-
   resources :users, only: :show
   
   devise_for :users, controllers: {registrations: 'users/registrations'}, path: 'user'

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :assigns
   has_many :teams, through: :assigns, source: :team
   has_many :chats
+  has_many :posts
+  has_many :comments, dependent: :destroy
 
   def make_nickname
     self.nickname = choose_nickname_randomly
