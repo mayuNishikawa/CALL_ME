@@ -1,12 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :icon, UsersIconUploader
 
   has_many :teams, foreign_key: :owner_id
-  has_many :assigns
+  has_many :assigns, dependent: :destroy
   has_many :teams, through: :assigns, source: :team
   has_many :chats
   has_many :posts
@@ -14,6 +12,27 @@ class User < ApplicationRecord
 
   def make_nickname
     self.nickname = choose_nickname_randomly
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.first_name = "一般"
+      user.family_name = "ゲスト"
+      user.nickname = user.make_nickname
+      user.password = SecureRandom.urlsafe_base64
+      user.icon = File.open("./app/assets/images/default_icon.png")
+    end
+  end
+
+  def self.guest_admin
+    find_or_create_by!(email: 'guest_admin@example.com') do |user|
+      user.first_name = "管理"
+      user.family_name = "ゲスト"
+      user.nickname = user.make_nickname
+      user.password = SecureRandom.urlsafe_base64
+      user.icon = File.open("./app/assets/images/default_icon.png")
+      user.admin = true
+    end
   end
 
   private

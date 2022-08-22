@@ -1,7 +1,12 @@
 <div class="chat mb-2">
   <div class="info">
     <p>
-      <%= image_tag(chat.user.icon.url) %>
+      <% if current_user.icon? %>
+        <%= link_to image_tag(chat.user.icon.url), user_path(chat.user.id) %>
+      <% else %>
+        <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(chat.user.id) %>
+      <% end %>
+
       <%= chat.user.nickname %>
       <%= chat.created_at.strftime('%m/%d/%H:%M') %>
     </p>

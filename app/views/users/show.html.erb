@@ -1,5 +1,11 @@
 <h1>ユーザー詳細</h1>
-<p><%= image_tag(@user.icon.url) %></p>
+<p>
+  <% if @user.icon? %>
+    <%= link_to image_tag(@user.icon.url), user_path(@user.id) %>
+  <% else %>
+    <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(@user.id) %>
+  <% end %>            
+</p>
 <p>
 Hi! I am <%= @user.family_name %> <%= @user.first_name %>, and <br>
 please call me <%= @user.nickname %>!

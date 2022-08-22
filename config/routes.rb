@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   resources :users, only: :show
   
   devise_for :users, controllers: {registrations: 'users/registrations'}, path: 'user'
-
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post 'users/guest_admin_sign_in', to: 'users/sessions#guest_admin_sign_in'
+  end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

@@ -4,14 +4,14 @@ class AssignsController < ApplicationController
     user = email_reliable?(assign_params)? User.find_by(email: assign_params) : nil
     if user
       team.invite_member(user)
-      redirect_to team_url(team)
+      redirect_to member_team_url(team)
     else
-      redirect_to team_url(team)
+      redirect_to member_team_url(team)
     end
   end
 
   def destroy
-    assign = Assign.find(params[:id])
+    assign = Assign.find_by(team_id: params[:id])
     assign.destroy
     redirect_to "/"
   end

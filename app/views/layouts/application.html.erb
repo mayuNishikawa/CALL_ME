@@ -18,7 +18,13 @@
             <!-- nav -->
             <div class="col-2 side_bar">
               <div class=" dropdown menu_content">
-                <button class="btn dropdown-toggle" data-toggle="dropdown" ><%= image_tag(current_user.icon.url) %></button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                  <% if current_user.icon? %>
+                    <%= image_tag current_user.icon.url, class: "icon" %>
+                  <% else %>
+                    <%= image_tag "/assets/default_icon.png", size: '50x50' %>
+                  <% end %>
+                </button>
                 <div class="dropdown-menu dropdowns">
                   <%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item dropdown" %>
                   <% if current_user.try(:admin?) %>
@@ -53,8 +59,10 @@
       </main>
     <% else %>
       <header>
-        <%= link_to "新規登録", new_user_registration_path %>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path, class: "bootstrap_link" %>
+        <%= link_to "ログイン", new_user_session_path, class: "bootstrap_link" %>
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "bootstrap_link" %>
+        <%= link_to "管理ゲストとしてログイン", users_guest_admin_sign_in_path, method: :post, class: "bootstrap_link" %>
       </header>
       <body>
         <!-- alert -->
