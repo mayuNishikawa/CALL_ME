@@ -9,60 +9,56 @@
   </head>
   <body>
     <% if user_signed_in? %>
-      <main>
-        <!-- action cable -->
-        <div id="room-id" data-room-id="<%= @team.try(:id) %>"></div>
-        <!-- section -->
-        <div class="container-fluid">
-          <div class="row">
-            <!-- nav -->
-            <div class="col-2 side_bar">
-              <div class=" dropdown menu_content">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">
-                  <% if current_user.icon? %>
-                    <%= image_tag current_user.icon.url, class: "icon" %>
-                  <% else %>
-                    <%= image_tag "/assets/default_icon.png", size: '50x50' %>
-                  <% end %>
-                </button>
-                <div class="dropdown-menu dropdowns">
-                  <%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item dropdown" %>
-                  <% if current_user.try(:admin?) %>
-                    <%= link_to "管理画面", rails_admin_path, class: "dropdown-item dropdown" %>
-                  <% end %>
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown" %>
-                </div>
-              </div>
-              <hr>
-              <%= link_to "Lounge", posts_path, class: "bootstrap_link" %>
-              <hr>
-              <%= render 'teams/form', team: Team.new %>
-              <hr>
-              <% Team.all.each do |team| %>
-                <% if team.members.ids.include?(current_user.id) %>
-                  <%= link_to team, class: "room_link" do %>
-                    <div class="card no_outline room_card mb-2">
-                      <div class="card-body">
-                        <p class="bootstrap_link"><%= team.name %></p>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
+      <!-- action cable -->
+      <div id="room-id" data-room-id="<%= @team.try(:id) %>"></div>
+      <!-- section -->
+      <section class="content">
+        <!-- side_bar -->
+        <div class="left_content">
+          <div class=" dropdown menu_content">
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+              <% if current_user.icon? %>
+                <%= image_tag current_user.icon.url, class: "icon" %>
+              <% else %>
+                <%= image_tag "/assets/default_icon.png", size: '50x50' %>
               <% end %>
+            </button>
+            <div class="dropdown-menu dropdowns">
+              <%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item dropdown" %>
+              <% if current_user.try(:admin?) %>
+                <%= link_to "管理画面", rails_admin_path, class: "dropdown-item dropdown" %>
+              <% end %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown" %>
             </div>
-            <!-- section -->
-            <div class="col-10">
-              <%= yield %>
-            </div>
-          </div> 
+          </div>
+          <hr>
+          <div class="lounge">
+            <%= link_to "Lounge", posts_path, class: "bootstrap_link_white" %>
+          </div>
+          <hr>
+          <div class="make_team_form">
+            <%= render 'teams/form', team: Team.new %>
+          </div>
+          <hr>
+          <% Team.all.each do |team| %>
+            <% if team.members.ids.include?(current_user.id) %>
+              <%= link_to team, class: "room_link bootstrap_link_white" do %>
+                <p class="room_name bootstrap_link_white"># <%= team.name %></p>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
-      </main>
+        <!-- contents -->
+        <div class="right_content">
+          <%= yield %>
+        </div>
+      </section>
     <% else %>
       <header>
-        <%= link_to "新規登録", new_user_registration_path, class: "bootstrap_link" %>
-        <%= link_to "ログイン", new_user_session_path, class: "bootstrap_link" %>
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "bootstrap_link" %>
-        <%= link_to "管理ゲストとしてログイン", users_guest_admin_sign_in_path, method: :post, class: "bootstrap_link" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "bootstrap_link_white" %>
+        <%= link_to "ログイン", new_user_session_path, class: "bootstrap_link_white" %>
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "bootstrap_link_white" %>
+        <%= link_to "管理ゲストとしてログイン", users_guest_admin_sign_in_path, method: :post, class: "bootstrap_link_white" %>
       </header>
       <body>
         <!-- alert -->

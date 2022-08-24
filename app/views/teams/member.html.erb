@@ -21,8 +21,8 @@
 <% end %>
 
 
-<%= link_to "チームを編集", edit_team_path(@team), class: "bootstrap_link" %>
-<%= link_to "チームを削除", @team, method: :delete, data:{ confirm: "削除しますか？"}, class: "bootstrap_link" %>
+<%= link_to "チームを編集", edit_team_path(@team), class: "bootstrap_link_black" %>
+<%= link_to "チームを削除", @team, method: :delete, data:{ confirm: "削除しますか？"}, class: "bootstrap_link_black" %>
 <% if @team.members.ids.include?(current_user.id) %>
-  <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"}, class: "bootstrap_link" %>
+  <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"}, class: "bootstrap_link_black" %>
 <% end %>

@@ -1,15 +1,11 @@
 <% unless @team.present? %>
   <div class="post-show-room">
-    <nav class="navbar navbar-light">
-      <div class="container-fluid">
-        <span class="navbar-brand">Lounge</span>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <%= link_to '戻る', posts_path, class: "bootstrap_link" %>
-          </li>
-        </ul>
-      </div>
+    <nav class="nav_bar">
+      <span class="name">
+        <%= link_to 'Lounge', new_post_path, class: "bootstrap_link_white" %>
+      </span>
     </nav>
+
 
     <div id="post_show">
       <div class="profile_flex">
@@ -26,8 +22,8 @@
       </div>
       <div class="post_content">
         <% if @post.user_id == current_user.id %>
-          <p><%= link_to '編集', edit_post_path(@post), class: "bootstrap_link" %></p>
-          <p><%= link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }, class: "bootstrap_link" %></p>
+          <p><%= link_to '編集', edit_post_path(@post), class: "bootstrap_link_black" %></p>
+          <p><%= link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }, class: "bootstrap_link_black" %></p>
         <% end %>
       </div>
       <div id="comments">
@@ -39,3 +35,5 @@
     </div>
   </div>
 <% end %>
+
+<%= link_to '戻る', posts_path, class: "bootstrap_link_black" %>
