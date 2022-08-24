@@ -12,7 +12,7 @@
           <div class="profile_flex">
             <p>
               <% if post.user.icon? %>
-                <%= link_to image_tag(post.user.icon.url), user_path(post.user.id) %>
+                <%= link_to image_tag(post.user.icon.url, size: '50x50'), user_path(post.user.id) %>
               <% else %>
                 <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(post.user.id) %>
               <% end %>            

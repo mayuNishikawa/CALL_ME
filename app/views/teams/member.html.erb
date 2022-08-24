@@ -15,7 +15,7 @@
 <h3>メンバー <small><%= @team.members.count %></small></h3>
 <% @team.members.each do |member| %>
   <div class="member_container">
-    <%= link_to image_tag(member.icon.url), user_path(member.id) %>
+    <%= link_to image_tag(member.icon.url, size: '50x50'), user_path(member.id) %>
     <%= member.nickname %>
   </div>
 <% end %>
