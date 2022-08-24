@@ -1,45 +1,69 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
+  window.chatContainer = document.getElementById('chats')
+
   const element = document.getElementById('room-id');
   const room_id = element.getAttribute('data-room-id');
 
+  if (chatContainer == null) {
+    return
+  }
   consumer.subscriptions.create({ channel: "RoomChannel", room_id: room_id}, {
     connected() {
-      console.log("connected to room channel" + room_id);
     },
 
     disconnected() {
     },
 
     received(data) {
-      const chatContainer = document.getElementById('chats')
       chatContainer.innerHTML = chatContainer.innerHTML + 
       data.html
     }
   });
 
   const documentElement = document.documentElement
-
   window.chatContent = document.getElementById('chat_content')
   window.scrollToBottom = function(){
     window.scroll(0, documentElement.scrollHeight);
   }
   scrollToBottom();
 
-  const chatButton = document.getElementById('chat-button');
-  const button_activation = function(){
-    if (chatContent.value === '') {
-      chatButton.classList.add('disabled');
-    } else {
-      chatButton.classList.remove('disabled');
-    }
-  }
+  // chatContent.addEventListener('input', function(){
+  //   changeLineCheck();
+  // })
 
-  chatContent.addEventListener('input', function(){
-      button_activation();
-  })
-  chatButton.addEventListener('click', function(){
-      chatButton.classList.add('disabled');
-  })
+  // const maxLineCount = 10;
+
+  // const getLineCount = function(){
+  //     return (chatContent.value + '\n').match(/\r?\n/g).length;
+  // }
+
+  // let lineCount = getLineCount();
+  // let newLineCount;
+
+  // const changeLineCheck = function(){
+  //   newLineCount = Math.min(getLineCount(), maxLineCount);
+  //   if (lineCount !== newLineCount) {
+  //     changeLineCount(newLineCount);
+  //   }
+  // };
+
+  // const footer = document.getElementsByClassName('chat-box');
+  // let footerHeight = footer.scrollHeight;
+  // let newFooterHeight, footerHeightDiff;
+
+  // const changeLineCount = function(newLineCount){
+  //   chatContent.rows = lineCount = newLineCount;
+  //   newFooterHeight = footer.scrollHeight;
+  //   footerHeightDiff = newFooterHeight - footerHeight;
+  //   if (footerHeightDiff > 0) {
+  //     chatContainer.style.paddingBottom = newFooterHeight + 'px';
+  //     window.scrollBy(0, footerHeightDiff);
+  //   } else {
+  //     window.scrollBy(0, footerHeightDiff);
+  //     chatContainer.style.paddingBottom = newFooterHeight + 'px';
+  //   }
+  //   footerHeight = newFooterHeight;
+  // };
 });

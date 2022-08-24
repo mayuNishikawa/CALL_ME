@@ -2,7 +2,7 @@
   <p>コメント件数：<%= post.comments.count %></p>
   <% post.comments.each do |comment| %>
     <% if comment.user.icon? %>
-      <%= link_to image_tag(comment.user.icon.url), user_path(chat.user.id) %>
+      <%= link_to image_tag(comment.user.icon.url), user_path(comment.user.id) %>
     <% else %>
       <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(comment.user.id) %>
     <% end %>
@@ -11,7 +11,7 @@
     <%= simple_format(h comment.comment) %>
     <% if comment.user == current_user %>
       <div class="comment_delete">
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "削除しますか？"}, class: "bootstrap_link" %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "削除しますか？"}, class: "bootstrap_link_black" %>
       </div>
     <% end %>
   <% end %>
