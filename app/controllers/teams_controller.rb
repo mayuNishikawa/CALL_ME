@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[ show edit update destroy member ]
   before_action :not_invited_user, only: %i[ show edit update destroy member ]
+  before_action :ensure_current_user, only: %i[ show edit update destroy member ]
   
   def index
     @teams = Team.all
@@ -17,7 +18,7 @@ class TeamsController < ApplicationController
       @team.invite_member(@team.owner)
       redirect_to team_url(@team)
     else
-      redirect_to "/"
+      redirect_to "teams_path"
     end
   end
 
@@ -40,7 +41,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    redirect_to "/"
+    redirect_to "teams_path"
   end
     
   def member
@@ -59,6 +60,10 @@ class TeamsController < ApplicationController
 
   def not_invited_user
     members = member.ids
-    redirect_to "/" unless members.include?(current_user.id)
+    redirect_to "teams_path" unless members.include?(current_user.id)
+  end
+
+  def ensure_current_user
+    redirect_to posts_path and return unless @team.members.ids.include?(current_user.id)
   end
 end
