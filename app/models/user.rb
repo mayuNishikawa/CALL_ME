@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :nickname, presence: true, length: { maximum: 20 }
+
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :icon, UsersIconUploader
