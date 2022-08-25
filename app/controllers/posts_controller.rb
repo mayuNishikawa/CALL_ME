@@ -55,8 +55,6 @@ class PostsController < ApplicationController
   end
 
   def ensure_current_user
-    unless @post.user == current_user
-      redirect_to posts_path
-    end
+    redirect_to posts_path and return unless @post.user == current_user
   end
 end

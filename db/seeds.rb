@@ -209,56 +209,56 @@ users = [
     first_name: "健",
     email: "aono@example.com",
     password: "aonoaono",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/aono_icon.png")
   ),
   User.new(
     family_name: "遠藤",
     first_name: "加名芽",
     email: "endo@example.com",
     password: "endoendo",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/endo_icon.png")
   ),
   User.new(
     family_name: "門脇",
     first_name: "健人",
     email: "kadowaki@example.com",
     password: "kadokado",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/kadowaki_icon.png")
   ),
   User.new(
     family_name: "金子",
     first_name: "玲子",
     email: "kaneko@example.com",
     password: "kanekane",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/kaneko_icon.png")
   ),
   User.new(
     family_name: "齋藤",
     first_name: "佑樹",
-    email: "saitoy@example.com",
+    email: "saito@example.com",
     password: "saisai",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/saito_icon.png")
   ),
   User.new(
     family_name: "佐藤",
     first_name: "駿介",
-    email: "saitos@example.com",
+    email: "sato@example.com",
     password: "saisai",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/sato_icon.png")
   ),
   User.new(
     family_name: "鈴木",
       first_name: "将太",
       email: "suzuki@example.com",
       password: "suzusuzu",
-      icon: File.open("./app/assets/images/default_icon.png")
+      icon: File.open("./app/assets/images/suzuki_icon.jpg")
   ),
   User.new(
     family_name: "中村",
       first_name: "恵",
       email: "nakamura@example.com",
       password: "nakanaka",
-      icon: File.open("./app/assets/images/default_icon.png")
+      icon: File.open("./app/assets/images/nakamura_icon.png")
   ),
   User.new(
     family_name: "西川",
@@ -273,42 +273,42 @@ users = [
     first_name: "瑠愛",
     email: "maruoka@example.com",
     password: "marumaru",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/maruoka_icon.png")
   ),
   User.new(
     family_name: "森塚",
     first_name: "冬乃",
     email: "morituka@example.com",
     password: "morimori",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/morituka_icon.png")
   ),
   User.new(
     family_name: "山田",
     first_name: "有二",
     email: "yamada@example.com",
     password: "yamayama",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/yamada_icon.png")
   ),
   User.new(
     family_name: "吉田",
     first_name: "大雅",
     email: "yosida@example.com",
     password: "yosiyosi",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/yosida_icon.png")
   ),
   User.new(
     family_name: "小林",
     first_name: "忠雄",
     email: "kobayasi@example.com",
     password: "kobakoba",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/kobayasi_icon.png")
   ),
   User.new(
     family_name: "井関",
     first_name: "旭",
     email: "iseki@example.com",
     password: "iseise",
-    icon: File.open("./app/assets/images/default_icon.png")
+    icon: File.open("./app/assets/images/iseki_icon.png")
   )
 ]
 
