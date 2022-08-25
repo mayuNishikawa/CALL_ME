@@ -328,7 +328,7 @@ Team.create!(
     {name: "経営陣", owner_id: 14},
     {name: "夜間部", owner_id: 11},
     {name: "朝活部", owner_id: 4},
-    {name: "自販機ワークチームリーダー", owner_id: 1},
+    {name: "自販機ワークリーダー", owner_id: 1},
     {name: "ねこちゃん愛好家", owner_id: 2}
   ]
 )
