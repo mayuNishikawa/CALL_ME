@@ -16,7 +16,5 @@ class UsersIconUploader < CarrierWave::Uploader::Base
     ActionController::Base.helpers.asset_path("/images/fallback/" + [thumb, "default_icon.png"].compact.join('_'))
   end
 
-  version :thumb do 
     process resize_to_fill: [50, 50]
-  end
 end

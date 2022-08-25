@@ -1,5 +1,10 @@
 class User < ApplicationRecord
+  attr_accessor :current_password
+  
+  validates :family_name, presence: true, length: { maximum: 20 }
+  validates :first_name, presence: true, length: { maximum: 20 }
   validates :nickname, presence: true, length: { maximum: 20 }
+  validates :profile, length: { maximum: 200 }
 
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
