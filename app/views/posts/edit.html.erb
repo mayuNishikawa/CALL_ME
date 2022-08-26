@@ -1,6 +1,12 @@
-<h1>投稿の編集</h1>
+    <nav class="nav_bar">
+      <span class="name">
+        <%= link_to 'Lounge', new_post_path, class: "bootstrap_link_white" %>
+      </span>
+    </nav>
 
 <%= render 'form', post: @post %>
 
-<%= link_to '詳細', @post, class: "bootstrap_link_black" %> |
-<%= link_to 'Lounge', posts_path, class: "bootstrap_link_black" %>
+<div class="button">
+  <%= link_to '詳細', @post, class: "bootstrap_link_black" %> |
+  <%= link_to 'Lounge', posts_path, class: "bootstrap_link_black" %>
+</div>
