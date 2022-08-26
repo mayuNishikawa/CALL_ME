@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
       @team.invite_member(@team.owner)
       redirect_to team_url(@team)
     else
-      redirect_to "teams_path"
+      redirect_to teams_path
     end
   end
 
@@ -41,7 +41,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    redirect_to "teams_path"
+    redirect_to teams_path
   end
     
   def member
@@ -60,7 +60,7 @@ class TeamsController < ApplicationController
 
   def not_invited_user
     members = member.ids
-    redirect_to "teams_path" unless members.include?(current_user.id)
+    redirect_to teams_path unless members.include?(current_user.id)
   end
 
   def ensure_current_user

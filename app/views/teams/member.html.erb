@@ -6,7 +6,6 @@
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control mr-2', placeholder: "emailアドレス" %>
     <div class="input-group-append">
-      <%# <button type="submit">追加</button> %>
       <%= f.submit "チーム作成", class: "btn btn-primary btn-block" %>
     </div>
   </div>
@@ -15,10 +14,16 @@
 <h3>メンバー <small><%= @team.members.count %></small></h3>
 <% @team.members.each do |member| %>
   <div class="member_container">
-    <%= link_to image_tag(member.icon.url, size: '50x50'), user_path(member.id) %>
+    <% if member.icon? %>
+      <%= link_to image_tag(member.icon.url, size: '50x50'), user_path(member.id) %>
+    <% else %>
+      <%= link_to (image_tag "/assets/default_icon.png", size: '50x50', alt: "#{member.id}"), user_path(member.id) %>
+    <% end %>
     <%= member.nickname %>
   </div>
 <% end %>
+
+
 
 
 <%= link_to "チームを編集", edit_team_path(@team), class: "bootstrap_link_black" %>
