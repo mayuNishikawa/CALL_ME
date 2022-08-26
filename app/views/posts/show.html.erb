@@ -6,32 +6,41 @@
       </span>
     </nav>
 
-
     <div id="post_show">
-      <div class="profile_flex">
-        <p>
+      <div class="post">
+        <div class="user_flex">
           <% if @post.user.icon? %>
-            <%= link_to image_tag(@post.user.icon.url, size: '50x50'), user_path(@post.user.id) %>
+            <p class="user_flex_item">
+              <%= link_to image_tag(@post.user.icon.url, size: '50x50'), user_path(@post.user.id) %>
+            </p>
           <% else %>
-            <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(@post.user.id) %>
-          <% end %>      
-        </p>
-        <p><%= @post.user.nickname %></p>
-        <p><%= image_tag(@post.image.url, size: '50x50') if @post.image.present? %></p>
-        <p><%= @post.content %></p>
+            <p class="user_flex_item">
+              <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(@post.user.id) %>
+            </p>
+          <% end %> 
+          <p class="user_flex_item">
+            <%= @post.user.nickname %>
+          </p>
+          <% if @post.user_id == current_user.id %>
+            <p class="user_flex_item">
+              <%= link_to '編集', edit_post_path(@post), class: "bootstrap_link_white post_link" %>
+            </p>
+            <p class="user_flex_item">
+              <%= link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }, class: "bootstrap_link_white post_link" %>
+            </p>
+          <% end %>
+        </div>
+        <div class="post_content">
+          <p class="image"><%= image_tag(@post.image.url) if @post.image.present? %></p>
+          <p class="text"></p><%= @post.content %></p>
+        </div>
       </div>
-      <div class="post_content">
-        <% if @post.user_id == current_user.id %>
-          <p><%= link_to '編集', edit_post_path(@post), class: "bootstrap_link_black" %></p>
-          <p><%= link_to '削除', @post, method: :delete, data: { confirm: '削除しますか?' }, class: "bootstrap_link_black" %></p>
-        <% end %>
-      </div>
-      <div id="comments">
-        <%= render 'comments/post_comments', post: @post %>
-      </div>
-      <div class="comment_form">
-        <%= render 'comments/form', post: @post, comment: @comment %>
-      </div>
+    </div>
+    <div id="comments">
+      <%= render 'comments/post_comments', post: @post %>
+    </div>
+    <div class="comment_form">
+      <%= render 'comments/form', post: @post, comment: @comment %>
     </div>
   </div>
 <% end %>

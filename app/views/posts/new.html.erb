@@ -1,5 +1,9 @@
-<h1>投稿作成</h1>
+<nav class="nav_bar">
+  <span class="name">
+    <%= link_to 'Lounge', new_post_path, class: "bootstrap_link_white" %>
+  </span>
+</nav>
 
 <%= render 'form', post: @post %>
 
-<%= link_to '戻る', posts_path, class: "bootstrap_link_black" %>
+<p class="button"><%= link_to '戻る', posts_path, class: "bootstrap_link_black" %></p>

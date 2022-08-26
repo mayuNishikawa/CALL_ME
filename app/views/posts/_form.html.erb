@@ -1,27 +1,25 @@
-<%= form_with(model: post, local: true) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="post_form">
+  <%= form_with(model: post, local: true) do |f| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-        <% post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form_content">
+      <p class="title"><%= f.label :content %></p>
+      <p><%= f.text_area :content, size: "55x10", class: "text_area" %></p>
+
+      <p class="title"><%= f.label :image %></p>
+      <label><%= f.file_field :image %></label>
+
+      <p><%= f.submit "投稿", class: "submit_button disabled" %></p>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :content %>
-    <%= f.text_field :content, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= image_tag(post.image.url) if post.image && post.image.url %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "投稿", class: "btn btn-primary btn-block disabled" %>
-  </div>
-<% end %>
+</div>

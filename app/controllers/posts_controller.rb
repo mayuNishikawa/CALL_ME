@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :ensure_current_user, only: %i[ edit update destroy ]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order("created_at DESC")
   end
 
   def show
