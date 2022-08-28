@@ -2,6 +2,12 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      nickname: ニックネーム
+      team: チーム
+      assign: アサイン
+      chat: チャット
+      post: 投稿
+      comment: コメント
     attributes:
       user:
         family_name: 氏
@@ -9,3 +15,22 @@ ja:
         nickname: ニックネーム
         admin: 管理者
         icon: アイコン
+      nickname:
+        content: ニックネームの部品
+        category: 種別
+      team:
+        name: チーム名
+        owner_id: チームリーダーのid
+      assign:
+        user_id: ユーザーid
+        team_id: チームid
+      chat:
+        user_id: ユーザーid
+        content: チャット
+      post:
+        user_id: ユーザーid
+        content: 投稿内容
+        image: 画像
+      comment:
+        user_id: ユーザーid
+        content: コメント
