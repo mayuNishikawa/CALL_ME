@@ -59,7 +59,7 @@ RSpec.describe 'Posting in Lounge', type: :system do
     context 'to click the link to show' do
       it 'is shown the post\'s page' do
         visit posts_path
-        click_on 'Show'
+        click_on 'コメント: 0件'
         expect(page).to have_content 'コメント'
       end
     end
@@ -67,7 +67,7 @@ RSpec.describe 'Posting in Lounge', type: :system do
     context 'to click the icon in the post' do
       it 'is shown the post\'s page' do
         visit posts_path
-        click_on "#{user.id}"
+        find(".right_content").click_on "#{user.id}"
         expect(page).to have_content "#{user.nickname}の部屋"
       end
     end
