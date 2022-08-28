@@ -116,6 +116,7 @@ html, body {
   height: 80px;
   display: flex;
   align-items: center;
+  z-index: 100;
   .name {
     font-size: 20px;
     margin-left:30px;
@@ -174,17 +175,59 @@ html, body {
 }
 
 // member //
-.member_content {
-  margin-top: 150px;
-  margin-left: 15px;
-  .member_container {
-    width: 1000px;
-    p {
-      margin-right:20px;
-    }
+h5 {
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+.edit_team_form {
+  margin-top: 100px;
+  h5 {
+    margin: 30px 0 10px 15px;
+  }
+  .input-group {
+    width: 700px;
+    margin: 0 0 30px 15px;
+  }
+}
+.assign_form {
+  margin:50px 0 0 15px;
+  width: 1000px;
+  .input-group {
+    margin-top: 10px;
+    width: 700px;
+  }
+}
+.member_flex {
+  margin: 30px 15px 0 0;
+  display: flex;
+  h5 {
+    margin: 0 20px 0 15px;
+  }
+  .flex_item {
+    margin-bottom: 0;
+    margin-right: 20px;
   }
 }
 
+.member_content {
+  margin: 30px 0 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  .member_container {
+    padding:20px;
+    margin-left: 5px;
+    width: 170px;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+  }
+  .icon {
+    width: 50px;
+    margin: 10px auto;
+  }
+  .name {
+    text-align: center;
+  }
+}
 
 // post-room //
 .post-room {
@@ -350,18 +393,6 @@ html, body {
       .user_flex_item {
         margin: 0 20px 0 0;
       }
-      input[type=submit]{
-        transition: background-color 0.3s ease;
-        background-color:#252525e5;
-        color: #f5f5f5;
-        font-size: 16px;
-        padding: 14px 30px;
-        margin-left: 5px;
-        border-radius: 3px;
-        &:hover {
-          background-color: #252525c5;
-        }
-      }
     }
     .user_introduce {
       height: 200px;
@@ -375,13 +406,122 @@ html, body {
       }
     }
   }
+  .field {
+    margin-bottom: 30px;
+  }
+  input[type=text]{
+    border: 1px solid #252525;
+    background-color: #ffffff;
+    width: 200px;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+  input[type=email]{
+    border: 1px solid #252525;
+    background-color: #ffffff;
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 5px;
+  }
+  input[type=password]{
+    border: 1px solid #252525;
+    background-color: #ffffff;
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 5px;
+  }
+  textarea {
+    padding:10px;
+    text-align: left;
+    width: 500px;
+    border: 1px solid #555555;
+    border-radius: 3px;
+    background-color:#ffffff;
+    resize:none;
+  }
+  input[type=submit]{
+    transition: background-color 0.3s ease;
+    background-color:#252525e5;
+    color: #f5f5f5;
+    font-size: 16px;
+    padding: 14px 30px;
+    margin: 30px auto;
+    border-radius: 3px;
+    &:hover {
+      background-color: #252525c5;
+    }
+  }
+  h5 {
+    margin-top: 100px;
+  }
 }
 
 .login {
-  margin-top: 300px;
-  width: 300px;
-  margin: 300px auto;
+  padding: 20px 30px;
+  width: 600px;
+  margin: 200px auto;
   border-radius: 3px;
-  border: 1px solid #eeeeee;
-  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  background-color: #ffffff;
+  .field {
+    margin-bottom: 30px;
+  }
+  input[type=text]{
+    border: 1px solid #252525;
+    background-color: #ffffff;
+    width: 400px;
+    border-radius: 5px;
+  }
+  input[type=email]{
+    border: 1px solid #252525;
+    background-color: #ffffff;
+    width: 400px;
+    border-radius: 5px;
+  }
+  input[type=password]{
+    border: 1px solid #252525;
+    background-color: #ffffff;
+    width: 400px;
+    border-radius: 5px;
+  }
+  input[type=submit]{
+    transition: background-color 0.3s ease;
+    background-color:#252525e5;
+    color: #f5f5f5;
+    font-size: 16px;
+    padding: 14px 30px;
+    margin: 30px auto;
+    border-radius: 3px;
+    &:hover {
+      background-color: #252525c5;
+    }
+  }
+}
+
+// call me home //
+.call_me_home {
+  width: 1240px;
+  margin: 100px auto;
+  h3 {
+    font-size: 50px;
+    letter-spacing: .05em;
+  }
+  .home_contents {
+    padding: 30px 20px;
+    p {
+      padding: 10px 0;
+    }
+    .call_me_where {
+      display: flex;
+      justify-content: space-evenly;
+      .place {
+        width: 400px;
+        padding: 20px;
+        h5 {
+          font-size: 30px;
+          letter-spacing: .02em;
+        }
+      }
+    }
+  }
 }
