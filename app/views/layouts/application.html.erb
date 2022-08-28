@@ -20,7 +20,7 @@
               <% if current_user.icon? %>
                 <%= image_tag current_user.icon.url, class: "icon", size: '50x50', alt: "#{current_user.id}" %>
               <% else %>
-                <%= image_tag "/assets/default_icon.png", size: '50x50', alt: "#{current_user.id}" %>
+                <%= image_tag "default_icon.png", size: '50x50', alt: "#{current_user.id}" %>
               <% end %>
             </button>
             <div class="dropdown-menu dropdowns">

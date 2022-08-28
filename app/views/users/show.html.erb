@@ -22,7 +22,7 @@
           <% end %>
         <% else %>
           <p class="user_flex_item">
-            <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(@user.id) %>
+            <%= link_to (image_tag "default_icon.png", size: '50x50'), user_path(@user.id) %>
           </p>
           <p class="user_flex_item">
             <%= @user.nickname %>
@@ -54,7 +54,7 @@
                 </p>
               <% else %>
                 <p class="user_flex_item">
-                  <%= link_to (image_tag "/assets/default_icon.png", size: '50x50'), user_path(user_post.user.id) %>
+                  <%= link_to (image_tag "default_icon.png", size: '50x50'), user_path(user_post.user.id) %>
                 </p>
               <% end %>            
               <p class="user_flex_item"><%= user_post.user.nickname %></p>
