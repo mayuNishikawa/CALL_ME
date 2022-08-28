@@ -16,6 +16,14 @@
 
 ## 実行手順
 
+お使いのPCにredisがインストールされていない場合はredisをインストールして起動
+
+```
+$ brew install redis
+$ brew services start redis
+```
+
+インストール済みの方はここから
 ```
 $ git clone git@github.com:mayuNishikawa/CALL_ME.git
 $ cd call_me
