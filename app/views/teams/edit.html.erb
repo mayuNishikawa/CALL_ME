@@ -1,5 +1,11 @@
-<h1>チーム編集</h1>
+<nav class="nav_bar">
+  <span class="name">
+    <%= link_to "# #{@team.name}", team_path(@team) %>
+  </span>
+</nav>
 
+<div class="edit_team_form">
 <%= render 'form', team: @team %>
+</div>
 
 <%= link_to '戻る', team_path(@team), class: "bootstrap_link_black" %>
