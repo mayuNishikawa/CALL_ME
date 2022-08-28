@@ -10,9 +10,8 @@
 
 ## カリキュラム外の技術
 * gem rails_admin, gem cancancanを使った管理者機能
-* gem seed_fuを使ったseedデータ管理
 * Action Cableを使った、送信時のリロード無しのチャット機能
-* gem pusherを使ったプッシュ通知機能
+* Active Job
 
 ## 実行手順
 
