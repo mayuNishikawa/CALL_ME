@@ -16,7 +16,7 @@
               </p>
             <% else %>
               <p class="user_flex_item">
-                <%= link_to (image_tag "/assets/default_icon.png", size: '50x50', alt: "#{post.user.id}"), user_path(post.user.id) %>
+                <%= link_to (image_tag "default_icon.png", size: '50x50', alt: "#{post.user.id}"), user_path(post.user.id) %>
               </p>
             <% end %>            
             <p class="user_flex_item"><%= post.user.nickname %></p>

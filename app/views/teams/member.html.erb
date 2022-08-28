@@ -36,7 +36,7 @@
         <% if member.icon? %>
           <p class="user_flex_item icon"><%= link_to image_tag(member.icon.url, size: '50x50'), user_path(member.id) %></p>
         <% else %>
-          <p class="user_flex_item icon"><%= link_to (image_tag "/assets/default_icon.png", size: '50x50', alt: "#{member.id}"), user_path(member.id) %></p>
+          <p class="user_flex_item icon"><%= link_to (image_tag "default_icon.png", size: '50x50', alt: "#{member.id}"), user_path(member.id) %></p>
         <% end %>
         <p class="user_flex_item name"><%= member.nickname %></p>
         <p class="user_flex_item name">(<%= member.family_name %> <%= member.first_name %>)</p>
