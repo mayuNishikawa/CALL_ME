@@ -27,7 +27,6 @@ class User < ApplicationRecord
       user.family_name = "ゲスト"
       user.nickname = user.make_nickname
       user.password = SecureRandom.urlsafe_base64
-      user.icon = File.open("./app/assets/images/default_icon.png")
     end
   end
 
@@ -37,7 +36,6 @@ class User < ApplicationRecord
       user.family_name = "ゲスト"
       user.nickname = user.make_nickname
       user.password = SecureRandom.urlsafe_base64
-      user.icon = File.open("./app/assets/images/default_icon.png")
       user.admin = true
     end
   end
