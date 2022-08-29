@@ -11,7 +11,7 @@ class AssignsController < ApplicationController
   end
 
   def destroy
-    assign = Assign.find_by(team_id: params[:id])
+    assign = Assign.find_by(team_id: params[:id], user_id: current_user)
     assign.destroy
     redirect_to teams_url
   end
