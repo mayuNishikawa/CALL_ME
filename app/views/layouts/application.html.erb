@@ -57,8 +57,14 @@
       <header class="nav_bar">
         <span class="name">
           <%= link_to "新規登録", new_user_registration_path, class: "bootstrap_link_white" %>
+        </span>
+        <span class="name">
           <%= link_to "ログイン", new_user_session_path, class: "bootstrap_link_white" %>
+        </span>
+        <span class="name">
           <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "bootstrap_link_white" %>
+        </span>
+        <span class="name">
           <%= link_to "管理ゲストとしてログイン", users_guest_admin_sign_in_path, method: :post, class: "bootstrap_link_white" %>
         </span>    
       </header>
