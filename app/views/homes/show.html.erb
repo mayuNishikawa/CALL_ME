@@ -1,7 +1,8 @@
 <% unless user_signed_in? %>
   <div class="call_me_home">
     <div class="home_contents">
-      <h3>Whta is CALL ME?</h3>
+      <h3>What is CALL ME?</h3>
+      <div class="greeting">
         <p>
           ニックネームで繋がる社内コミュニケーションツールです。<br>
           社員感のコミュニケーションを円滑にすることは、幅広い世代が働く会社組織にとって喫緊の課題と言えます。
@@ -9,42 +10,58 @@
         <p>
           それを解決する手段として、ニックネームで呼び合ってみませんか？
           ニックネームは「相手への親しみ」「自分が受け入れられているという安心感」をもたらします。
-        </p>
-          
+        </p> 
         <p>気軽な会話や相談がしやすい組織づくりの一環として、CALL MEを活用してみませんか？</p>
+      </div>
     </div>
-
     <div class="home_contents">
       <h3>CALL ME in Where?</h3>
         <div class="call_me_where">
           <div class="place">
-            <h5>IN Chatroom</h5>
-            <p>
-              チャットチャットルームを作成出来ます。<br>
-              登録しているメールアドレスからチャットルームへメンバーを招待することが出来ます。グループは誰でも簡単に作れるので、部署以外に趣味やイベント等好きなグループを作成してみましょう。
-            </p>
+            <h5>IN Lounge</h5>
+            <div class="place_detail">
+              <p>何でも気軽に投稿できるタイムラインをご用意しました。</p>
+              <p>社内SNS, 業務に関するQ&A等としてご活用ください。</p>
+              <p>社員間の意外な共通点が見つかったり、何気ないつぶやきから新規事業が生まれたりするかもしれません。</p>
+            </div>
           </div>
           <div class="place">
-            <h5>IN Lounge</h5>
-            <p>
-              何でも気軽に投稿できるタイムラインをご用意しました。<br>
-              社内SNS, 業務に関するQ&A等としてご活用ください。社員間の意外な共通点が見つかったり、何気ないつぶやきから新規事業が生まれたりするかもしれません。
-            </p>
+            <h5>IN Chatroom</h5>
+            <div class="place_detail">
+              <p>チャットチャットルームを作成出来ます。</p>
+              <p>登録しているメールアドレスからチャットルームへメンバーを招待することが出来ます。</p>
+              <p>グループは誰でも簡単に作れるので、部署以外に趣味やイベント等好きなグループを作成してみましょう。</p>
+            </div>
           </div>
           <div class="place">
             <h5>IN Anywhere!</h5>
-            <p>
-              アプリを飛び越え、現実世界でも呼び合ってみましょう！
-            </p>
+            <div class="place_detail">
+              <p>アプリを飛び越え、現実世界でも呼び合ってみましょう！</p>
+            </div>
           </div>
         </div>
       </div>
-
       <div class="home_contents">
         <h3>Let's try CALL ME !</h3>
       </div>
     </div>
   </div>
 <% else %>
-  <div class="call_me_home"></div>
+  <div class="call_me_home">
+    <div class="home_contents">
+      <h3>CALL ME in ラウンジ</h3>
+      <div class="detail">
+        <p>自由に投稿していただけるタイムラインです。</p>
+        <p>ヘッダーのアイコンから投稿可能です。気になる投稿にはコメントも出来ます。</p>
+      </div>
+    </div>
+    <div class="home_contents">
+      <h3>CALL ME in チャットルーム</h3>
+      <div class="detail">
+        <p># チーム名のフォームから新たなチャットルームを作成出来ます</p>
+        <p>チームごとに表示されるヘッダーのアイコンから、チャットルームの編集やへメンバー招待をすることが出来ます。</p>
+        <p>グループを作って、部署以外に趣味やイベント等好きなグループを作成してみましょう。</p>
+      </div>
+    </div>
+  </div>
 <% end %>

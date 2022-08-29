@@ -1,9 +1,8 @@
 <nav class="nav_bar">
   <span class="name">
-    <%= link_to 'Lounge', new_post_path, class: "bootstrap_link_white" %>
+    <%= link_to image_tag("back_icon.png"), posts_path, class: "bootstrap_link_white" %>
   </span>
+  <span class="name">新規投稿</span>
 </nav>
 
 <%= render 'form', post: @post %>
-
-<p class="button"><%= link_to '戻る', posts_path, class: "bootstrap_link_black" %></p>

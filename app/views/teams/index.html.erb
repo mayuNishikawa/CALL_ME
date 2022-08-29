@@ -2,7 +2,10 @@
   <div class="chat-room">
     <nav class="nav_bar">
       <span class="name">
-        # <%= link_to @team.name, member_team_path(@team.id), class: "bootstrap_link_white" %>
+        <%= link_to image_tag("setting_icon.png"), member_team_path(@team.id), class: "bootstrap_link_white" %>
+      </span>
+      <span class="name">
+        <%= "# #{@team.name}" %>
       </span>
     </nav>
 

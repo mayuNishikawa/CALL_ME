@@ -1,6 +1,9 @@
 <nav class="nav_bar">
   <span class="name">
-    <%= link_to "# #{@team.name}", team_path(@team) %>
+    <%= link_to image_tag("back_icon.png"), team_path(@team) %>
+  </span>
+  <span class="name">
+    <%= "# #{@team.name}" %>
   </span>
 </nav>
 
@@ -23,10 +26,9 @@
 
 <div class="member_flex">
   <h5>メンバー <%= @team.members.count %></h5>
-  <p class="flex_item"><%= link_to "チームを編集", edit_team_path(@team), class: "bootstrap_link_black" %></p>
-  <p class="flex_item"><%= link_to "チームを削除", @team, method: :delete, data:{ confirm: "削除しますか？"}, class: "bootstrap_link_black" %></p>
+  <p class="flex_item"><%= link_to image_tag("trash_icon.png"), @team, method: :delete, data:{ confirm: "チームを削除しますか？"}, class: "bootstrap_link_black" %></p>
   <p class="flex_item"><% if @team.members.ids.include?(current_user.id) %>
-    <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"}, class: "bootstrap_link_black" %></p>
+    <%= link_to image_tag("remove_icon.png"), team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"}, class: "bootstrap_link_black" %></p>
   <% end %>
 </div>
 
