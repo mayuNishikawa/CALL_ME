@@ -6,11 +6,11 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :profile, length: { maximum: 200 }
 
-  has_many :teams, foreign_key: :owner_id
+  has_many :teams, foreign_key: :owner_id, dependent: :destroy
   has_many :assigns, dependent: :destroy
-  has_many :teams, through: :assigns, source: :team
-  has_many :chats
-  has_many :posts
+  has_many :teams, through: :assigns, source: :team, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
