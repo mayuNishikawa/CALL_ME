@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = current_user.chats.create!(chat_params)
+    @chat = current_user.chats.create(chat_params)
     SendChatJob.perform_later(@chat)
   end
 

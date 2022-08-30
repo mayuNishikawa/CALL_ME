@@ -30,3 +30,4 @@ class AssignsController < ApplicationController
     Team.find(params[:team_id])
   end
 end
+

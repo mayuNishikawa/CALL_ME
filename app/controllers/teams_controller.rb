@@ -1,6 +1,5 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[ show edit update destroy member ]
-  before_action :not_invited_user, only: %i[ show edit update destroy member ]
   before_action :ensure_current_user, only: %i[ show edit update destroy member ]
   
   def index
@@ -25,7 +24,7 @@ class TeamsController < ApplicationController
   def show
     @teams = Team.all
     @room_id = params[:id]
-    render 'index'
+    render :index
   end
 
   def edit
@@ -58,12 +57,7 @@ class TeamsController < ApplicationController
     params.require(:team).permit(:name)
   end
 
-  def not_invited_user
-    members = member.ids
-    redirect_to teams_path unless members.include?(current_user.id)
-  end
-
   def ensure_current_user
-    redirect_to posts_path and return unless @team.members.ids.include?(current_user.id)
+    redirect_to teams_path and return unless @team.members.ids.include?(current_user.id)
   end
 end
