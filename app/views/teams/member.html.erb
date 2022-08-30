@@ -26,22 +26,30 @@
 
 <div class="member_flex">
   <h5>メンバー <%= @team.members.count %></h5>
-  <p class="flex_item"><%= link_to image_tag("trash_icon.png"), @team, method: :delete, data:{ confirm: "チームを削除しますか？"}, class: "bootstrap_link_black" %></p>
-  <p class="flex_item"><% if @team.members.ids.include?(current_user.id) %>
-    <%= link_to image_tag("remove_icon.png"), team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"}, class: "bootstrap_link_black" %></p>
+  <p class="flex_item">
+    <%= link_to image_tag("trash_icon.png"), @team, method: :delete, data:{ confirm: "チームを削除しますか？"}, class: "bootstrap_link_black" %>
+  </p>
+  <p class="flex_item">
+    <% if @team.members.ids.include?(current_user.id) %>
+    <%= link_to image_tag("remove_icon.png"), team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"}, class: "bootstrap_link_black" %>
+  </p>
   <% end %>
 </div>
 
 <div class="member_content">
   <% @team.members.each do |member| %>
     <div class="member_container">
-        <% if member.icon? %>
-          <p class="user_flex_item icon"><%= link_to image_tag(member.icon.url, size: '50x50'), user_path(member.id) %></p>
-        <% else %>
-          <p class="user_flex_item icon"><%= link_to (image_tag "default_icon.png", size: '50x50', alt: "#{member.id}"), user_path(member.id) %></p>
-        <% end %>
-        <p class="user_flex_item name"><%= member.nickname %></p>
-        <p class="user_flex_item name">(<%= member.family_name %> <%= member.first_name %>)</p>
+      <% if member.icon? %>
+        <p class="user_flex_item icon">
+          <%= link_to image_tag(member.icon.url, size: '50x50'), user_path(member.id) %>
+        </p>
+      <% else %>
+        <p class="user_flex_item icon">
+          <%= link_to (image_tag "default_icon.png", size: '50x50', alt: "#{member.id}"), user_path(member.id) %>
+        </p>
+      <% end %>
+      <p class="user_flex_item name"><%= member.nickname %></p>
+      <p class="user_flex_item name">(<%= member.family_name %> <%= member.first_name %>)</p>
     </div>
   <% end %>
 </div>

@@ -17,8 +17,7 @@ document.addEventListener('turbolinks:load', () => {
     },
 
     received(data) {
-      chatContainer.innerHTML = chatContainer.innerHTML + 
-      data.html
+      chatContainer.innerHTML = chatContainer.innerHTML + data.html
     }
   });
 

@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def devise_create
     build_resource(sign_up_params)
     @user.make_nickname
-
     resource.save
     yield resource if block_given?
     if resource.persisted?
