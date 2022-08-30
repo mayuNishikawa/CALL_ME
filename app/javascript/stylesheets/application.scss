@@ -148,19 +148,29 @@ html, body {
   position: fixed;
   bottom: 0;
   transform: translate3d(0, 0, 0);
-  width: 100%;
+  width: 85%;
   height: 77px;
   padding: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  .chat_form {
+  form {
+    width: 100%;
+  }
+  .chat_content {
+    display: flex;
     margin-left: 30px;
+  }
+  .chat_form {
+    display: block;
+    width: 72%;
+    min-width: 200px;
     input[type=text] {
       height: 45px;
       font-size: 18px;
       padding: 8px 16px;
-      width: 1200px;
+      width: 100%;
+      // min-width: 200px;
       border-radius: 3px;
       border: 1px solid #eeeeee;
     }
