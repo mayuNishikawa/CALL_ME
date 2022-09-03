@@ -6,9 +6,19 @@ document.addEventListener('turbolinks:load', () => {
   const element = document.getElementById('room-id');
   const room_id = element.getAttribute('data-room-id');
 
-  if (chatContainer == null) {
+  let already_connected = false
+  for (let subscription of consumer.subscriptions.subscriptions) {
+    let already_connected_room_id = JSON.parse(subscription.identifier).room_id
+    if (already_connected_room_id === room_id) {
+      already_connected = true
+      break
+    }
+  }
+  
+  if (chatContainer == null || already_connected) {
     return
   }
+  
   consumer.subscriptions.create({ channel: "RoomChannel", room_id: room_id}, {
     connected() {
     },
