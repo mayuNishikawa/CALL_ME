@@ -1,7 +1,7 @@
 <div class="chat mb-2">
   <div class="info">
     <p>
-      <% if current_user.icon? %>
+      <% if chat.user.icon? %>
         <%= link_to image_tag(chat.user.icon.url, size: '50x50'), user_path(chat.user.id) %>
       <% else %>
         <%= link_to (image_tag "default_icon.png", size: '50x50'), user_path(chat.user.id) %>

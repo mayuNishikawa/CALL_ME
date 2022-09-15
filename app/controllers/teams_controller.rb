@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @teams = Team.all
+    # @teams = Team.all
     @room_id = params[:id]
     render :index
   end
