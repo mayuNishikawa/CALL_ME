@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'homes#show'
 
   resources :homes, only: :show
-  resources :chats, only: %i[ new create destroy ]
+  resources :chats, only: %i[ new create ]
   resources :teams do
     member do
       get :member
