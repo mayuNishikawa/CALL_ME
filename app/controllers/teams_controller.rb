@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   before_action :ensure_current_user, only: %i[ show edit update destroy member ]
   
   def index
-    @teams = Team.all
+    @teams = current_user.teams.select(:id, :name)
   end
 
   def new
@@ -22,7 +22,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    # @teams = Team.all
     @room_id = params[:id]
     render :index
   end
