@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   def new
-    @chat = Chat.new
+    Chat.new
   end
 
   def create
@@ -8,12 +8,8 @@ class ChatsController < ApplicationController
     SendChatJob.perform_later(@chat)
   end
 
-  def destroy
-    @chat = Chat.find(params[:id])
-    @chat.destroy
-  end
-
   private
+  
   def chat_params
     params.require(:chat).permit(:content, :user_id, :team_id)
   end
