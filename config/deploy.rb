@@ -2,7 +2,7 @@
 lock '3.16.0'
 
 # デプロイするアプリケーション名
-set :application, 'CALL_ME'
+set :application, 'callme'
 
 # cloneするgitのリポジトリ
 set :repo_url, 'https://github.com/mayuNishikawa/CALL_ME'
@@ -11,7 +11,7 @@ set :repo_url, 'https://github.com/mayuNishikawa/CALL_ME'
 set :branch, ENV['BRANCH'] || 'master'
 
 # deploy先のディレクトリ。
-set :deploy_to, '/var/www/achieve'
+set :deploy_to, '/var/www/callme'
 
 # シンボリックリンクをはるフォルダ・ファイル
 set :linked_files, %w{.env config/secrets.yml}
