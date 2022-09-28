@@ -1,0 +1,32 @@
+<div class=" dropdown menu_content">
+  <button class="btn dropdown-toggle" data-toggle="dropdown">
+    <% if current_user.icon? %>
+      <%= image_tag current_user.icon.url, class: "icon", size: '50x50', alt: "#{current_user.id}" %>
+    <% else %>
+      <%= image_tag "default_icon.png", size: '50x50', alt: "#{current_user.id}" %>
+    <% end %>
+  </button>
+  <div class="dropdown-menu dropdowns">
+    <%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item dropdown" %>
+    <% if current_user.try(:admin?) %>
+      <%= link_to "管理画面", rails_admin_path, class: "dropdown-item dropdown" %>
+    <% end %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown" %>
+  </div>
+</div>
+<hr>
+<div class="lounge">
+  <%= link_to "ラウンジ", posts_path, class: "bootstrap_link_white" %>
+</div>
+<hr>
+<div class="make_team_form">
+  <%= render 'teams/form', team: Team.new %>
+</div>
+<hr>
+<% Team.all.each do |team| %>
+  <% if team.members.ids.include?(current_user.id) %>
+    <%= link_to team, class: "room_link bootstrap_link_white" do %>
+      <p class="room_name bootstrap_link_white"># <%= team.name %></p>
+    <% end %>
+  <% end %>
+<% end %>
