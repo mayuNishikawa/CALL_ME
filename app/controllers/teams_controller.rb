@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
   before_action :ensure_current_user, only: %i[ show edit update destroy member ]
   
   def index
-    @teams = current_user.teams.select(:id, :name)
   end
 
   def new

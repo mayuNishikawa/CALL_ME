@@ -23,17 +23,16 @@ html, body {
 
 // side bar //
 .left_content {
-  flex-basis: 285px;
   position: fixed;
   height: 100%;
   top: 0;
+  flex-basis: 280px;
   background-color: #343838;
-  border-right: 1px solid #252525;
   .dropdowns {
     transition: all 0.5s ease;
-    background-color: #252525c5;
+    background-color: #000000;
+    width:100%;
     padding: 0;
-    margin: 0;
     .dropdown {
       display: flex;
       justify-content: center;
@@ -41,39 +40,42 @@ html, body {
       color: #f5f5f5;
       padding: 30px 70px;
       &:hover {
-        transition: background-color 0.3s ease;
-        background-color: #252525e5;
+        transition: background-color 0.2s ease;
+        background-color: #f5f5f5c5;
+        color: #252525;
         a {
-          color: #f5f5f5;
           text-decoration: none;
         }
       }
     }
-  }
-  .lounge {
-    margin-left: 12px;
-    transition: background-color 0.3s ease;
-    border-radius: 3px;
-    text-decoration: none;
+  }   
+  form{
+    width: 280px;
+    height:50px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    width: 240px;
-    height: 50px;
-    padding: 5px;
-    &:hover {
+    .form_content {
+      width: 200px;
       background-color: #f5f5f5;
-      a {
-        display: block;
-        color: #252525;
-        text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 3px;
+    }
+    .form_button {
+      width: 60px;
+      height:50px;
+      background-color:#000000;
+      color: #f5f5f5;
+      font-size: 13px;
+      border-radius: 3px;
+      text-align: center;
+      &:hover {
+        transition: background-color 0.2s ease;
+        background-color: #00000050;
       }
     }
   }
-  .make_team_form {
-    margin: 20px 12px;
-  }
-  .room_link {
+  .sidebar_link {
     transition: background-color 0.3s ease;
     border-radius: 3px;
     text-decoration: none;
@@ -90,7 +92,7 @@ html, body {
         color: #252525;
       }
     }
-    .room_name {
+    .sidebar_link_name {
       margin-bottom: 0;
       color: #f5f5f5;
     }
@@ -100,11 +102,10 @@ html, body {
 // right_contents //
 // common_parts //
 .right_content {
-  margin-left: 300px;
   flex-basis: 1000px;
   flex-grow: 1;
   min-height: 100vh;
-
+  margin-left: 280px;
 }
 .nav_bar {
   background-color: #343838;
