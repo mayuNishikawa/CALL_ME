@@ -15,18 +15,18 @@
   </div>
 </div>
 <hr>
-<div class="lounge">
-  <%= link_to "ラウンジ", posts_path, class: "bootstrap_link_white" %>
-</div>
+<a>
+  <%= link_to posts_path, class: "sidebar_link bootstrap_link_white" do %>
+    <p class="sidebar_link_name bootstrap_link_white"># ラウンジ</p>
+  <% end %>
+</a>
 <hr>
 <div class="make_team_form">
   <%= render 'teams/form', team: Team.new %>
 </div>
 <hr>
-<% Team.all.each do |team| %>
-  <% if team.members.ids.include?(current_user.id) %>
-    <%= link_to team, class: "room_link bootstrap_link_white" do %>
-      <p class="room_name bootstrap_link_white"># <%= team.name %></p>
-    <% end %>
+<% all_teams_belongs_to.each do |team| %>
+  <%= link_to team, class: "sidebar_link bootstrap_link_white" do %>
+    <p class="sidebar_link_name bootstrap_link_white"># <%= team.name %></p>
   <% end %>
 <% end %>
