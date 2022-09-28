@@ -21,9 +21,7 @@
   <% end %>
 </a>
 <hr>
-<div class="make_team_form">
-  <%= render 'teams/form', team: Team.new %>
-</div>
+<%= render 'teams/form', team: Team.new %>
 <hr>
 <% all_teams_belongs_to.each do |team| %>
   <%= link_to team, class: "sidebar_link bootstrap_link_white" do %>
