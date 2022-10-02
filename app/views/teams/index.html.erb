@@ -1,21 +1,19 @@
 <% if @team.present? %>
-  <div class="chat-room">
-    <header class="header">
-      <span class="name">
-        <%= link_to image_tag("setting_icon.png"), member_team_path(@team.id), class: "bootstrap_link_white" %>
-      </span>
-      <span class="name">
-        <%= "# #{@team.name}" %>
-      </span>
-    </header>
+  <header class="header">
+    <span class="name">
+      <%= link_to image_tag("setting_icon.png"), member_team_path(@team.id), class: "bootstrap_link_white" %>
+    </span>
+    <span class="name">
+      <%= "# #{@team.name}" %>
+    </span>
+  </header>
 
-    <div id="chats">
-      <% @team.chats.order(:created_at).each do |chat| %>
-        <%= render'chats/chat', chat: chat %>
-      <% end %>
-    </div>
-    <div class="chat-box">
-      <%= render 'chats/form', chat: Chat.new, team: @team %>
-    </div>
+  <div id="chats">
+    <% @team.chats.order(:created_at).each do |chat| %>
+      <%= render'chats/chat', chat: chat %>
+    <% end %>
+  </div>
+  <div class="chat-box">
+    <%= render 'chats/form', chat: Chat.new, team: @team %>
   </div>
 <% end %>
