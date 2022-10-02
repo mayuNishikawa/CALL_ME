@@ -1,8 +1,8 @@
-<nav class="nav_bar">
+<header class="header">
   <span class="name">
     <%= link_to "# #{@team.name}", team_path(@team) %>
   </span>
-</nav>
+</head>
 
 <div class="edit_team_form">
   <%= render 'form', team: @team %>

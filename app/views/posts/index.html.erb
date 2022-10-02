@@ -1,11 +1,11 @@
 <% unless @team.present? %>
   <div class="post-room">
-    <nav class="nav_bar">
+    <header class="header">
       <span class="name">
         <%= link_to image_tag("new_post_icon.png"), new_post_path, class: "bootstrap_link_white" %>
       </span>
       <span class="name">ラウンジ</span>
-    </nav>
+    </header>
 
     <div class="posts">
       <% @posts.each do |post| %>

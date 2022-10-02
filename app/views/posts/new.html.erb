@@ -1,8 +1,8 @@
-<nav class="nav_bar">
+<header class="header">
   <span class="name">
     <%= link_to image_tag("back_icon.png"), posts_path, class: "bootstrap_link_white" %>
   </span>
   <span class="name">新規投稿</span>
-</nav>
+</header>
 
 <%= render 'form', post: @post %>
