@@ -47,6 +47,11 @@
     </div>
   </div>
 <% else %>
+  <header class="header">
+    <span class="name">
+      <%= "#{current_user.nickname}さん、こんにちは。" %>
+    </span>
+  </header>
   <div class="call_me_home">
     <div class="home_contents">
       <h3>CALL ME in ラウンジ</h3>
