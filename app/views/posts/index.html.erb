@@ -1,38 +1,36 @@
 <% unless @team.present? %>
-  <div class="post-room">
-    <header class="header">
-      <span class="name">
-        <%= link_to image_tag("new_post_icon.png"), new_post_path, class: "bootstrap_link_white" %>
-      </span>
-      <span class="name">ラウンジ</span>
-    </header>
+  <header class="header">
+    <span class="name">
+      <%= link_to image_tag("new_post_icon.png"), new_post_path, class: "bootstrap_link_white" %>
+    </span>
+    <span class="name">ラウンジ</span>
+  </header>
 
-    <div class="posts">
-      <% @posts.each do |post| %>
-        <div class="post">
-          <div class="user_flex">
-            <% if post.user.icon? %>
-              <p class="user_flex_item">
-                <%= link_to image_tag(post.user.icon.url, size: '50x50', alt: "#{post.user.id}"), user_path(post.user.id) %>
-              </p>
-            <% else %>
-              <p class="user_flex_item">
-                <%= link_to (image_tag "default_icon.png", size: '50x50', alt: "#{post.user.id}"), user_path(post.user.id) %>
-              </p>
-            <% end %>            
-            <p class="user_flex_item"><%= post.user.nickname %></p>
-          </div>
-          <div class="post_content">
-            <p class="image"><%= image_tag(post.image.url) if post.image.present? %></p>
-            <p class="text"><%= post.content %></p>
-          </div>
-          <div class="comment">
-            <p>
-              <%= link_to image_tag("comment_icon.png") , post, class: "bootstrap_link_black" %><%= link_to " : #{post.comments.count}件" , post, class: "bootstrap_link_black" %>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="user_flex">
+          <% if post.user.icon? %>
+            <p class="user_flex_item">
+              <%= link_to image_tag(post.user.icon.url, size: '50x50', alt: "#{post.user.id}"), user_path(post.user.id) %>
             </p>
-          </div>
+          <% else %>
+            <p class="user_flex_item">
+              <%= link_to (image_tag "default_icon.png", size: '50x50', alt: "#{post.user.id}"), user_path(post.user.id) %>
+            </p>
+          <% end %>            
+          <p class="user_flex_item"><%= post.user.nickname %></p>
         </div>
-      <% end %>
-    </div>
+        <div class="post_content">
+          <p class="image"><%= image_tag(post.image.url) if post.image.present? %></p>
+          <p class="text"><%= post.content %></p>
+        </div>
+        <div class="comment">
+          <p>
+            <%= link_to image_tag("comment_icon.png") , post, class: "bootstrap_link_black" %><%= link_to " : #{post.comments.count}件" , post, class: "bootstrap_link_black" %>
+          </p>
+        </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
