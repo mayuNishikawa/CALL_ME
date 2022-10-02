@@ -28,23 +28,26 @@ html, body {
   top: 0;
   flex-basis: 280px;
   background-color: #343838;
-  .dropdowns {
-    transition: all 0.5s ease;
-    background-color: #000000;
-    width:100%;
-    padding: 0;
-    .dropdown {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #f5f5f5;
-      padding: 30px 70px;
-      &:hover {
-        transition: background-color 0.2s ease;
-        background-color: #f5f5f5c5;
-        color: #252525;
-        a {
-          text-decoration: none;
+  .dropdown {
+    height: 60px;
+    .dropdowns {
+      transition: all 0.5s ease;
+      background-color: #000000;
+      width:100%;
+      padding: 0;
+      .dropdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f5f5f5;
+        padding: 30px 70px;
+        &:hover {
+          transition: background-color 0.2s ease;
+          background-color: #f5f5f5c5;
+          color: #252525;
+          a {
+            text-decoration: none;
+          }
         }
       }
     }
@@ -141,7 +144,6 @@ html, body {
       background-color: #eeeeee;
     }
   }
-  
 }
 .chat-box {
   background-color: #ffffff;
