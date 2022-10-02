@@ -131,7 +131,7 @@ html, body {
   }
 }
 
-// chat-room //
+// chatroom //
 #chats{
   height: 100%;
   padding: 100px 15px;
@@ -188,59 +188,52 @@ html, body {
 }
 
 // member //
-h5 {
-  margin-bottom: 0;
-  margin-top: 30px;
-}
-.edit_team_form {
+.team_content {
+  padding: 0 15px;
   margin-top: 100px;
-  h5 {
-    margin: 30px 0 10px 15px;
+  .edit_team_form {
+    margin:50px 0 0 15px;
+    .input-group {
+      width: 700px;
+      margin: 0 0 30px 15px;
+    }
   }
-  .input-group {
-    width: 700px;
-    margin: 0 0 30px 15px;
+  .assign_form {
+    margin:50px 0 0 15px;
+    .input-group {
+      margin-top: 10px;
+      width: 700px;
+    }
   }
-}
-.assign_form {
-  margin:50px 0 0 15px;
-  width: 1000px;
-  .input-group {
-    margin-top: 10px;
-    width: 700px;
+  .member_flex {
+    margin:50px 0 0 15px;
+    display: flex;
+    .flex_item {
+      margin-bottom: 0;
+      margin-left: 20px;
+    }
   }
-}
-.member_flex {
-  margin: 30px 15px 0 0;
-  display: flex;
-  h5 {
-    margin: 0 20px 0 15px;
-  }
-  .flex_item {
-    margin-bottom: 0;
-    margin-right: 20px;
-  }
+  .member_content {
+    margin: 30px 0 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    .member_container {
+      padding:20px;
+      margin-left: 5px;
+      width: 170px;
+      border: 1px solid #eeeeee;
+      border-radius: 3px;
+    }
+    .icon {
+      width: 50px;
+      margin: 10px auto;
+    }
+    .name {
+      text-align: center;
+    }
+  }  
 }
 
-.member_content {
-  margin: 30px 0 0 15px;
-  display: flex;
-  flex-wrap: wrap;
-  .member_container {
-    padding:20px;
-    margin-left: 5px;
-    width: 170px;
-    border: 1px solid #eeeeee;
-    border-radius: 3px;
-  }
-  .icon {
-    width: 50px;
-    margin: 10px auto;
-  }
-  .name {
-    text-align: center;
-  }
-}
 
 // post-room //
 .post-room {
